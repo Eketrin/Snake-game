@@ -18,38 +18,43 @@ namespace Snake_game
 {
     public partial class MainWindow : Window
     {
+        //канвас 640 на 420
+
         //все списки
         public List<Point> snakePoints = new List<Point>();
-        
+        private List<Point> applePoints = new List<Point>();
+
+
         //инты
         private int direction = 0; //сейчас
         private int previousDirection = 0; //прошлое
-        private int length = 100; //нарисованы на холсте
+        private int length = 50; //нарисованы на холсте
         private Point startPosition = new Point(210, 320);
-        private Point currentPosition = new Point();
+        private Point nowPosition = new Point();
         private Random rnd = new Random();
+        private int score = 0; //счёт
+        int sizeL = (int)SnakeSize.Large;
 
         //енамы
         private enum SnakeSize
         {
-            Thin = 4,
-            Normal = 6,
-            Thick = 8
-        }; //размеры змеи
+            Small = 5,
+            Medium = 8,
+            Large = 10
+        }; 
         private enum SpeedOfSnake
         {
             High = 100,
             Middle = 10000,
             Slow = 50000,
-        }; // скорость змеи
-        private enum DirectionToGo //направление
+        }; 
+        private enum DirectionToGo 
         {
-            goUp = 8,
-            goDown = 2,
-            goLeft = 4,
-            goRight = 6
+            Up = 8,
+            Down = 2,
+            Left = 4,
+            Right = 6
         };
-
 
 
 
@@ -58,8 +63,8 @@ namespace Snake_game
             Ellipse newEllipse = new Ellipse
             {
                 Fill = Brushes.Black, //цвет змеи
-                Width = (int)SnakeSize.Thick, //размер шарика
-                Height = (int)SnakeSize.Thick 
+                Width = (int)SnakeSize.Large, //размер шарика
+                Height = (int)SnakeSize.Large 
             };
 
             Canvas.SetTop(newEllipse, currentposition.Y);
@@ -75,133 +80,155 @@ namespace Snake_game
                 snakePoints.RemoveAt(count - length);
             }
         }
+
         public MainWindow()
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_Tick);
+            timer.Tick += new EventHandler(perSec); 
             
             timer.Interval = new TimeSpan((int)SpeedOfSnake.Middle);//скорость змеи
             timer.Start();
 
-            this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
+            this.KeyDown += new KeyEventHandler(GetButtonDown);
             paintSnake(startPosition);
-            currentPosition = startPosition;
+            nowPosition = startPosition;
+            
 
-            // Instantiate Food Objects
+            // яблоки рандом
             for (int n = 0; n < 10; n++)
             {
-                GetNewApple(n);
+                PaintNewApple(n);
             }
         }
-        private void timer_Tick(object sender, EventArgs e)
+        private void perSec(object sender, EventArgs e)
         {
-            // Expand the body of the snake to the direction of movement
+            // изменение координат спавна точек
 
             switch (direction)
             {
-                case (int)MOVINGDIRECTION.DOWNWARDS:
-                    currentPosition.Y += 1;
-                    paintSnake(currentPosition);
+                case (int)DirectionToGo.Up:
+                    nowPosition.Y -= 1;
+                    paintSnake(nowPosition);
                     break;
-                case (int)MOVINGDIRECTION.UPWARDS:
-                    currentPosition.Y -= 1;
-                    paintSnake(currentPosition);
+                case (int)DirectionToGo.Down:
+                    nowPosition.Y += 1;
+                    paintSnake(nowPosition);
                     break;
-                case (int)MOVINGDIRECTION.TOLEFT:
-                    currentPosition.X -= 1;
-                    paintSnake(currentPosition);
+                case (int)DirectionToGo.Left:
+                    nowPosition.X -= 1;
+                    paintSnake(nowPosition);
                     break;
-                case (int)MOVINGDIRECTION.TORIGHT:
-                    currentPosition.X += 1;
-                    paintSnake(currentPosition);
+                case (int)DirectionToGo.Right:
+                    nowPosition.X += 1;
+                    paintSnake(nowPosition);
                     break;
             }
 
-            // Restrict to boundaries of the Canvas
-            if ((currentPosition.X < 5) || (currentPosition.X > 620) ||
-                (currentPosition.Y < 5) || (currentPosition.Y > 380))
+            // границы канваса 640 на 420 
+            if ((nowPosition.X < 0) || (nowPosition.X > 613) ||
+                (nowPosition.Y < 0) || (nowPosition.Y > 410))
                 GameOver();
 
-            // Hitting a bonus Point causes the lengthen-Snake Effect
+            // рост и очки
             int n = 0;
-            foreach (Point point in bonusPoints)
+            foreach (Point point in applePoints)
             {
 
-                if ((Math.Abs(point.X - currentPosition.X) < headSize) &&
-                    (Math.Abs(point.Y - currentPosition.Y) < headSize))
+                if ((Math.Abs(point.X - nowPosition.X) < sizeL) &&
+                    (Math.Abs(point.Y - nowPosition.Y) < sizeL))
                 {
                     length += 10;
                     score += 10;
+                    Score.Text = Convert.ToString(score);
 
-                    // In the case of food consumption, erase the food object
-                    // from the list of bonuses as well as from the canvas
-                    bonusPoints.RemoveAt(n);
+                    //удаление яблок
+                    applePoints.RemoveAt(n);
                     paintCanvas.Children.RemoveAt(n);
-                    paintBonus(n);
+                    PaintNewApple(n);
                     break;
                 }
                 n++;
             }
 
-            // Restrict hits to body of Snake
-
-            for (int q = 0; q < (snakePoints.Count - headSize * 2); q++)
+            
+            
+            for (int q = 0; q < (snakePoints.Count - sizeL * 2); q++)
             {
                 Point point = new Point(snakePoints[q].X, snakePoints[q].Y);
-                if ((Math.Abs(point.X - currentPosition.X) < (headSize)) &&
-                     (Math.Abs(point.Y - currentPosition.Y) < (headSize)))
+                if ((Math.Abs(point.X - nowPosition.X) < (sizeL)) &&
+                     (Math.Abs(point.Y - nowPosition.Y) < (sizeL)))
                 {
                     GameOver();
                     break;
                 }
             }
         }
-        private void OnButtonKeyDown(object sender, KeyEventArgs e)
+        private void GetButtonDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
                 case Key.Down:
                 case Key.S:
-                    if (previousDirection != (int)DirectionToGo.goUp)
-                        direction = (int)DirectionToGo.goDown;
+                    if (previousDirection != (int)DirectionToGo.Up)
+                        direction = (int)DirectionToGo.Down;
                     break;
                 case Key.Up:
                 case Key.W:
-                    if (previousDirection != (int)DirectionToGo.goDown)
-                        direction = (int)DirectionToGo.goUp;
+                    if (previousDirection != (int)DirectionToGo.Down)
+                        direction = (int)DirectionToGo.Up;
                     break;
                 case Key.Left:
                 case Key.A:
-                    if (previousDirection != (int)DirectionToGo.goRight)
-                        direction = (int)DirectionToGo.goLeft;
+                    if (previousDirection != (int)DirectionToGo.Right)
+                        direction = (int)DirectionToGo.Left;
                     break;
                 case Key.Right:
                 case Key.D:
-                    if (previousDirection != (int)DirectionToGo.goLeft)
-                        direction = (int)DirectionToGo.goRight;
+                    if (previousDirection != (int)DirectionToGo.Left)
+                        direction = (int)DirectionToGo.Right;
+                    break;
+                case Key.Escape:
+                        direction = 0;
                     break;
 
             }
             previousDirection = direction;
 
         }
-        private void GetNewApple(int index)
+        private void PaintNewApple(int index) 
         {
-            Point apple = new Point(rnd.Next(5, 780), rnd.Next(5, 480));
+            Point apple = new Point(rnd.Next(5, 608), rnd.Next(5, 405));
 
             Ellipse newEllipse = new Ellipse
             {
                 Fill = Brushes.Red,
-                Width = _headSize,
-                Height = _headSize
+                Width = (int)SnakeSize.Large,
+                Height = (int)SnakeSize.Large
             };
 
             Canvas.SetTop(newEllipse, apple.Y);
             Canvas.SetLeft(newEllipse, apple.X);
-            PaintCanvas.Children.Insert(index, newEllipse);
-            _bonusPoints.Insert(index, apple);
+            paintCanvas.Children.Insert(index, newEllipse);
+            applePoints.Insert(index, apple);
 
         }
+        private void GameOver()
+        {
+            MessageBox.Show($"Вы проиграли :( Счёт: {score}", "Game Over", MessageBoxButton.OK, MessageBoxImage.Hand);
+            this.Close();
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+            direction = 0;
+        }
+
+        /*
+         * <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        */
     }
 }

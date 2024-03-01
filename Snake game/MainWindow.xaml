@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Snake_game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="420" Width="640" ResizeMode="NoResize">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow" Height="700" Width="640" ResizeMode="NoResize">
+    <Grid Background="#FFF5ED95">
+
         <Canvas Name="paintCanvas" Background="White"
-                Grid.Column="1" HorizontalAlignment="Stretch"  MaxHeight="420" MaxWidth="640"></Canvas>
+                Grid.Column="1"  Height="420" Width="640" VerticalAlignment="Top"/>
+        <Button x:Name="Stop" Content="Стоп" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="69" Width="158" FontFamily="Bahnschrift" FontSize="30" Margin="0,440,0,0" Background="#FFBD2A2A" Foreground="White" Click="Stop_Click"/>
+        <Button x:Name="Continue" Content="Продолжить" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="69" Width="198" FontFamily="Bahnschrift" FontSize="30" Margin="419,440,0,0" Background="#FF80CE42" Foreground="White"/>
+        <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Left" Margin="415,529,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" Width="198"/>
+        <TextBox  Text="Счёт:" HorizontalAlignment="Left" Margin="320,527,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="90" FontFamily="Bahnschrift" FontSize="30" Background="#FFF5ED95" TextAlignment="Right" BorderBrush="#FFF5ED95"/>
+        <Button x:Name="NewGame" Content="Новая игра" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="69" Width="176" FontFamily="Bahnschrift" FontSize="30" Margin="40,440,0,0" RenderTransformOrigin="-0.766,0.588" Background="#FF80CE42" Foreground="White"/>
     </Grid>
 </Window>
