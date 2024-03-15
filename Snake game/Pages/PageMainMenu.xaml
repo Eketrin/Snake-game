@@ -9,8 +9,10 @@
       Title="PageMainMenu">
 
     <Grid Background="#FFF2FBB5">
-        <Label Content="Ваш счёт:" Margin="0,61,478,0" FontFamily="Bahnschrift Light" FontSize="20" HorizontalAlignment="Right" Width="109" Height="32" VerticalAlignment="Top"/>
-        <Button Content="Новая игра" Click="ButtonNewGame" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,449,259" />
-        <Button Content="Добавить" Click="ButtonName" HorizontalAlignment="Right" Width="138" FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,449,138"/>
+        <Label Content="Ваш счёт:" Margin="0,37,449,0" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="143" Height="41" VerticalAlignment="Top"/>
+        <Button Content="Новая игра" Click="ButtonNewGame" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,449,239" />
+        <Button Content="Добавить" Click="ButtonName" HorizontalAlignment="Right" Width="138" FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,449,109"/>
+        <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Left" Margin="190,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" Width="190"/>
+        <TextBox Margin="47,205,402,178" />
     </Grid>
 </Page>

@@ -23,6 +23,7 @@ namespace Snake_game
         //все списки
         public List<Point> snakePoints = new List<Point>();
         private List<Point> applePoints = new List<Point>();
+        public int page = 0;
 
         //инты
         private int direction = 0; //сейчас
@@ -75,7 +76,7 @@ namespace Snake_game
 
             if (count > length)
             {
-                paintCanvas.Children.RemoveAt(count - length);
+                paintCanvas.Children.RemoveAt(count - length + 9);
                 snakePoints.RemoveAt(count - length);
             }
         }
@@ -225,7 +226,17 @@ namespace Snake_game
         {
             direction = 0;
             MainFrame.Content = new Pages.StopPage();
+            page += 1;
+            if(page % 2 == 1)
+            {
+                Stop.Visibility = Visibility.Hidden;
+            }
+            
         }
 
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }
