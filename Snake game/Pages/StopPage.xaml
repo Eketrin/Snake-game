@@ -9,8 +9,8 @@
       Title="StopPage" >
 
     <Grid Background="#FFF2FBB5">
-        <Label Content="Продолжить?" Margin="253,151,245,221" FontFamily="Bahnschrift Light" FontSize="20"/>
-        <Button Margin="0,0,359,152" Content="Да" Click="ButtonYes" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom"/>
-        <Button Margin="0,0,128,152" Content="Нет" Click="ButtonNo" HorizontalAlignment="Right" Width="138" Height="44" VerticalAlignment="Bottom" FontFamily="Bahnschrift Light" FontSize="20"/>
+        <Label Content="Продолжить?" Margin="0,151,245,0" FontFamily="Bahnschrift Light" FontSize="20" HorizontalAlignment="Right" Width="136" Height="48" VerticalAlignment="Top"/>
+        <Button Margin="0,224,359,0" Content="Да" Click="ButtonYes" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Top"/>
+        <Button Margin="0,224,128,0" Content="Нет" Click="ButtonNo" HorizontalAlignment="Right" Width="138" FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Top"/>
     </Grid>
 </Page>

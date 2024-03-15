@@ -16,13 +16,24 @@ using System.Windows.Shapes;
 namespace Snake_game.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для GamePage.xaml
+    /// Логика взаимодействия для PageMainMenu.xaml
     /// </summary>
-    public partial class GamePage : Page
+    public partial class PageMainMenu : Page
     {
-        public GamePage()
+        public PageMainMenu()
         {
             InitializeComponent();
         }
+
+        private void ButtonNewGame(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonName(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

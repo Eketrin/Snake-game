@@ -32,7 +32,7 @@ namespace Snake_game.Pages
         }
         private void ButtonNo(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new );
+            NavigationService.Navigate(new Pages.PageMainMenu());
         }
 
 

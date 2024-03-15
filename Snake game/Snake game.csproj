@@ -63,15 +63,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Holder.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\GamePage.xaml">
+    <Page Include="Pages\PageGameOver.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageGameOver.xaml">
+    <Page Include="Pages\PageMainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -81,11 +82,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\GamePage.xaml.cs">
-      <DependentUpon>GamePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PageGameOver.xaml.cs">
       <DependentUpon>PageGameOver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageMainMenu.xaml.cs">
+      <DependentUpon>PageMainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StopPage.xaml.cs">
       <DependentUpon>StopPage.xaml</DependentUpon>

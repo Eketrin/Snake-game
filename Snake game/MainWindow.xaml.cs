@@ -24,7 +24,6 @@ namespace Snake_game
         public List<Point> snakePoints = new List<Point>();
         private List<Point> applePoints = new List<Point>();
 
-
         //инты
         private int direction = 0; //сейчас
         private int previousDirection = 0; //прошлое
@@ -76,7 +75,7 @@ namespace Snake_game
 
             if (count > length)
             {
-                paintCanvas.Children.RemoveAt(count - length + 9);
+                paintCanvas.Children.RemoveAt(count - length);
                 snakePoints.RemoveAt(count - length);
             }
         }
@@ -94,7 +93,6 @@ namespace Snake_game
             paintSnake(startPosition);
             nowPosition = startPosition;
             
-
 
             // яблоки рандом
             for (int n = 0; n < 10; n++)
@@ -157,13 +155,7 @@ namespace Snake_game
             for (int q = 0; q < (snakePoints.Count - sizeL * 2); q++)
             {
                 Point point = new Point(snakePoints[q].X, snakePoints[q].Y);
-                if (snakePoints.Count > 15)
-                {
-                    if (snakePoints[0].X + 1 != snakePoints[1].X)
-                    {
-                        snakePoints.RemoveAt(0);
-                    }
-                }
+                
                 if ((Math.Abs(point.X - nowPosition.X) < (sizeL)) &&
                      (Math.Abs(point.Y - nowPosition.Y) < (sizeL)))
                 {
