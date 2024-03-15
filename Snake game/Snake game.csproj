@@ -67,14 +67,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PageGameOver.xaml">
+    <Page Include="Pages\PageGameOver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PageGameOver.xaml.cs">
+    <Compile Include="Pages\PageGameOver.xaml.cs">
       <DependentUpon>PageGameOver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StopPage.xaml.cs">
+      <DependentUpon>StopPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

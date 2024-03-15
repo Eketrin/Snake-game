@@ -222,6 +222,8 @@ namespace Snake_game
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
             direction = 0;
+            
+            //MainFrame.Content = new 
         }
 
         /*
