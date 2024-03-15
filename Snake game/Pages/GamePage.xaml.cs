@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace Snake_game.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для StopPage.xaml
+    /// Логика взаимодействия для GamePage.xaml
     /// </summary>
-    public partial class StopPage : Page
+    public partial class GamePage : Page
     {
-        public StopPage()
+        public GamePage()
         {
             InitializeComponent();
-            
         }
-
-        private void ButtonYes(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(null);
-        }
-        private void ButtonNo(object sender, RoutedEventArgs e)
-        {
-            //NavigationService.Navigate(new );
-        }
-
-
     }
 }

@@ -5,11 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Snake_game.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="StopPage">
+      d:DesignHeight="420" d:DesignWidth="634"
+      Title="StopPage" >
 
     <Grid Background="#FFF2FBB5">
-        <Label Content="Для продолжения игры нажмите [Esc]" Margin="200,196,238,214" FontFamily="Bahnschrift Light" FontSize="20"/>
-        <Button Margin="306,259,333,123" Click="Button_Click"></Button>
+        <Label Content="Продолжить?" Margin="253,151,245,221" FontFamily="Bahnschrift Light" FontSize="20"/>
+        <Button Margin="0,0,359,152" Content="Да" Click="ButtonYes" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom"/>
+        <Button Margin="0,0,128,152" Content="Нет" Click="ButtonNo" HorizontalAlignment="Right" Width="138" Height="44" VerticalAlignment="Bottom" FontFamily="Bahnschrift Light" FontSize="20"/>
     </Grid>
 </Page>
