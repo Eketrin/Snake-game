@@ -14,11 +14,34 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace Snake_game
+namespace Snake_game.Pages
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для GameTest.xaml
+    /// </summary>
+    public partial class GameTest : Page
     {
-        /*
+        public GameTest()
+        {
+            InitializeComponent();
+            this.Focus();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(perSec);
+            timer.Interval = new TimeSpan((int)SpeedOfSnake.Middle);//скорость змеи
+            timer.Start();
+
+
+            this.KeyDown += new KeyEventHandler(GetButtonDown);
+            paintSnake(startPosition);
+            nowPosition = startPosition;
+
+
+            // яблоки рандом
+            for (int n = 0; n < 10; n++)
+            {
+                PaintNewApple(n);
+            }
+        }
         //канвас 640 на 420
 
         //все списки
@@ -42,14 +65,14 @@ namespace Snake_game
             Small = 5,
             Medium = 8,
             Large = 10
-        }; 
+        };
         private enum SpeedOfSnake
         {
             High = 100,
             Middle = 10000,
             Slow = 50000,
-        }; 
-        private enum DirectionToGo 
+        };
+        private enum DirectionToGo
         {
             Up = 8,
             Down = 2,
@@ -65,7 +88,7 @@ namespace Snake_game
             {
                 Fill = Brushes.Black, //цвет змеи
                 Width = (int)SnakeSize.Large, //размер шарика
-                Height = (int)SnakeSize.Large 
+                Height = (int)SnakeSize.Large
             };
 
             Canvas.SetTop(newEllipse, currentposition.Y);
@@ -80,29 +103,8 @@ namespace Snake_game
                 paintCanvas.Children.RemoveAt(count - length + 9);
                 snakePoints.RemoveAt(count - length);
             }
-        }*/
-        
-        public MainWindow()
-        {
-            InitializeComponent();/*
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(perSec);
-            timer.Interval = new TimeSpan((int)SpeedOfSnake.Middle);//скорость змеи
-            timer.Start();
-            
-            
-            this.KeyDown += new KeyEventHandler(GetButtonDown);
-            paintSnake(startPosition);
-            nowPosition = startPosition;
-            
-
-            // яблоки рандом
-            for (int n = 0; n < 10; n++)
-            {
-                PaintNewApple(n);
-            }*/
         }
-        /*
+
         private void perSec(object sender, EventArgs e)
         {
             // изменение координат спавна точек
@@ -153,12 +155,12 @@ namespace Snake_game
                 n++;
             }
 
-            
-            
+
+
             for (int q = 0; q < (snakePoints.Count - sizeL * 2); q++)
             {
                 Point point = new Point(snakePoints[q].X, snakePoints[q].Y);
-                
+
                 if ((Math.Abs(point.X - nowPosition.X) < (sizeL)) &&
                      (Math.Abs(point.Y - nowPosition.Y) < (sizeL)))
                 {
@@ -167,7 +169,8 @@ namespace Snake_game
                 }
             }
         }
-        public void GetButtonDown(object sender, KeyEventArgs e)
+        
+        public void GetButtonDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             switch (e.Key)
             {
@@ -193,16 +196,16 @@ namespace Snake_game
                     break;
                 case Key.Escape:
                     direction = 0;
-                    MainFrame.Content = new Pages.StopPage();
+                    NavigationService.Navigate(new Pages.StopPage(this));
                     break;
 
             }
             previousDirection = direction;
 
         }
-        private void PaintNewApple(int index) 
+        private void PaintNewApple(int index)
         {
-            Point apple = new Point(rnd.Next(20, 608), rnd.Next(5, 645)); 
+            Point apple = new Point(rnd.Next(20, 608), rnd.Next(5, 645));
 
             Ellipse newEllipse = new Ellipse
             {
@@ -217,33 +220,31 @@ namespace Snake_game
             applePoints.Insert(index, apple);
 
         }
-        
+
         private void GameOver()
         {
             MessageBox.Show($"Вы проиграли :( Счёт: {score}", "Game Over", MessageBoxButton.OK, MessageBoxImage.Hand);
-            this.Close();
+            //this.Close();
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
             direction = 0;
-            MainFrame.Content = new Pages.StopPage();
-            page += 1;
-            if(page % 2 == 1)
+            NavigationService.Navigate(new Pages.StopPage(this));
+
+            /*
+             * page += 1;
+            if (page % 2 == 1)
             {
                 Stop.Visibility = Visibility.Hidden;
-                
+
             }
             else
             {
                 Stop.Visibility = Visibility.Visible;
-            }
-            
+            }*/
+
         }
 
-        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }*/
     }
 }

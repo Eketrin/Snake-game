@@ -20,18 +20,18 @@ namespace Snake_game.Pages
     /// </summary>
     public partial class StopPage : Page
     {
-        
+        private GameTest _gameTest;
 
-        public StopPage()
+        public StopPage(GameTest gameTest)
         {
             InitializeComponent();
-            
+            _gameTest = gameTest;
         }
 
         private void ButtonYes(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(null);
-            page += 1;
+            NavigationService.Navigate(_gameTest);
+            //Stop.Visibility = Visibility.Visible;
 
         }
         private void ButtonNo(object sender, RoutedEventArgs e)

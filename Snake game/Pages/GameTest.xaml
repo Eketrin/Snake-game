@@ -1,0 +1,19 @@
+﻿<Page x:Class="Snake_game.Pages.GameTest"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Snake_game.Pages"
+      mc:Ignorable="d" 
+      Title="GameTest" Height="670" Width="640" PreviewKeyDown="GetButtonDown">
+
+    <Grid Background="#FFF5ED95">
+
+        <Canvas Name="paintCanvas" Background="White" Height="668" VerticalAlignment="Top" Margin="0,0,3,0" />
+        <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Left" Margin="79,4,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" Width="190"/>
+        <Label  Content="Счёт:" HorizontalAlignment="Left" Margin="1,-1,0,0" VerticalAlignment="Top" Width="86" FontFamily="Bahnschrift" FontSize="30" Height="41" />
+        <Button x:Name="Stop" Content="Пауза" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="40" Width="98" FontFamily="Bahnschrift" FontSize="30" Margin="536,0,0,0" Background="#FFBD2A2A" Foreground="White" Click="Stop_Click"/>
+
+
+    </Grid>
+</Page>
