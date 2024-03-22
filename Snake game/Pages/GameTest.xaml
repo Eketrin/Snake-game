@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Snake_game.Pages"
       mc:Ignorable="d" 
-      Title="GameTest" Height="670" Width="640" PreviewKeyDown="GetButtonDown">
+      Title="GameTest" Height="670" Width="640" 
+      KeyDown="GetButtonDown">
 
     <Grid Background="#FFF5ED95">
 

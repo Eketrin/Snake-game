@@ -24,14 +24,13 @@ namespace Snake_game.Pages
         public GameTest()
         {
             InitializeComponent();
-            this.Focus();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(perSec);
             timer.Interval = new TimeSpan((int)SpeedOfSnake.Middle);//скорость змеи
             timer.Start();
 
 
-            this.KeyDown += new KeyEventHandler(GetButtonDown);
+            KeyDown += GetButtonDown; //this.KeyDown += new KeyEventHandler(GetButtonDown);
             paintSnake(startPosition);
             nowPosition = startPosition;
 
@@ -79,7 +78,6 @@ namespace Snake_game.Pages
             Left = 4,
             Right = 6
         };
-
 
 
         private void paintSnake(Point currentposition)
@@ -157,7 +155,7 @@ namespace Snake_game.Pages
 
 
 
-            for (int q = 0; q < (snakePoints.Count - sizeL * 2); q++)
+            for (int q = 1; q < (snakePoints.Count - sizeL * 2); q++)
             {
                 Point point = new Point(snakePoints[q].X, snakePoints[q].Y);
 
@@ -196,13 +194,14 @@ namespace Snake_game.Pages
                     break;
                 case Key.Escape:
                     direction = 0;
-                    NavigationService.Navigate(new Pages.StopPage(this));
+                    NavigationService.Navigate(new Pages.StopPage()); //this
                     break;
 
             }
             previousDirection = direction;
 
         }
+
         private void PaintNewApple(int index)
         {
             Point apple = new Point(rnd.Next(20, 608), rnd.Next(5, 645));
@@ -230,7 +229,7 @@ namespace Snake_game.Pages
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
             direction = 0;
-            NavigationService.Navigate(new Pages.StopPage(this));
+            NavigationService.Navigate(new Pages.StopPage()); //this
 
             /*
              * page += 1;

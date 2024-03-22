@@ -27,7 +27,7 @@ namespace Snake_game.Pages
 
         private void ButtonNewGame(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new MainWindow());
         }
 
         private void ButtonName(object sender, RoutedEventArgs e)

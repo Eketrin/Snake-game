@@ -18,7 +18,7 @@ namespace Snake_game
 {
     public partial class MainWindow : Window
     {
-        /*
+        
         //канвас 640 на 420
 
         //все списки
@@ -27,12 +27,13 @@ namespace Snake_game
         public int page = 0;
 
         //инты
+        private static Random rnd = new Random();
         private int direction = 0; //сейчас
         private int previousDirection = 0; //прошлое
         private int length = 50; //нарисованы на холсте
-        private Point startPosition = new Point(210, 320);
+        private Point startPosition = new Point(rnd.Next(20, 608), rnd.Next(5, 645));
         private Point nowPosition = new Point();
-        private Random rnd = new Random();
+        
         private int score = 0; //счёт
         int sizeL = (int)SnakeSize.Large;
 
@@ -80,11 +81,14 @@ namespace Snake_game
                 paintCanvas.Children.RemoveAt(count - length + 9);
                 snakePoints.RemoveAt(count - length);
             }
-        }*/
+        }
         
         public MainWindow()
         {
-            InitializeComponent();/*
+            
+            InitializeComponent();
+            this.KeyDown += new KeyEventHandler(GetButtonDown);
+            
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(perSec);
             timer.Interval = new TimeSpan((int)SpeedOfSnake.Middle);//скорость змеи
@@ -100,9 +104,8 @@ namespace Snake_game
             for (int n = 0; n < 10; n++)
             {
                 PaintNewApple(n);
-            }*/
+            }
         }
-        /*
         private void perSec(object sender, EventArgs e)
         {
             // изменение координат спавна точек
@@ -155,7 +158,7 @@ namespace Snake_game
 
             
             
-            for (int q = 0; q < (snakePoints.Count - sizeL * 2); q++)
+            for (int q = 1; q < (snakePoints.Count - sizeL * 2); q++)
             {
                 Point point = new Point(snakePoints[q].X, snakePoints[q].Y);
                 
@@ -228,22 +231,13 @@ namespace Snake_game
         {
             direction = 0;
             MainFrame.Content = new Pages.StopPage();
-            page += 1;
-            if(page % 2 == 1)
-            {
-                Stop.Visibility = Visibility.Hidden;
-                
-            }
-            else
-            {
-                Stop.Visibility = Visibility.Visible;
-            }
+            
             
         }
 
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
         {
 
-        }*/
+        }
     }
 }
