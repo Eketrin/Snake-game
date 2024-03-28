@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Snake_game.Pages;
 
 namespace Snake_game
 {
@@ -36,6 +37,8 @@ namespace Snake_game
         
         private int score = 0; //счёт
         int sizeL = (int)SnakeSize.Large;
+        
+
 
         //енамы
         private enum SnakeSize
@@ -58,6 +61,7 @@ namespace Snake_game
             Right = 6
         };
 
+        
 
 
         private void paintSnake(Point currentposition)
@@ -105,6 +109,21 @@ namespace Snake_game
             {
                 PaintNewApple(n);
             }
+            /*
+            if (Holder.IsRestart)
+            {
+                Score.Text = "ddddddddddddd";
+                Holder.IsRestart = false;
+                snakePoints.Clear();
+                applePoints.Clear();
+                page = 0;
+                direction = 0; //сейчас
+
+                previousDirection = 0; //прошлое
+                score = 0;
+                paintSnake(startPosition);
+                nowPosition = startPosition;
+            }*/
         }
         private void perSec(object sender, EventArgs e)
         {
@@ -235,9 +254,6 @@ namespace Snake_game
             
         }
 
-        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -5,15 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Snake_game.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="420" d:DesignWidth="634"
+      d:DesignHeight="670" d:DesignWidth="634"
       Title="PageMainMenu">
 
-    <Grid Background="#FFF2FBB5" VerticalAlignment="Center">
-        <Label Content="Ваш счёт:" Margin="0,0,449,342" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="143" Height="41" VerticalAlignment="Bottom"/>
-        <Button Content="Новая игра" Click="ButtonNewGame" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,449,239" />
+    <Grid Background="#FFF2FBB5" VerticalAlignment="Center" Height="670">
+        
+        <Label Content="Ваш счёт:" Margin="0,0,439,474" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="143" Height="41" VerticalAlignment="Bottom"/>
+        <Button Content="Новая игра" Click="ButtonNewGame" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,439,371" />
 
-        <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Right" Margin="0,0,254,347" TextWrapping="Wrap"  VerticalAlignment="Bottom" FontFamily="Bahnschrift" FontSize="30" Width="190" Height="31"/>
-        <ListBox HorizontalAlignment="Right" Height="270" VerticalAlignment="Bottom" Width="263" Margin="0,0,46,58"/>
+
+        <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Right" Margin="0,0,244,479" TextWrapping="Wrap"  VerticalAlignment="Bottom" FontFamily="Bahnschrift" FontSize="30" Width="190" Height="31"/>
+        <ListBox HorizontalAlignment="Left" Height="270" VerticalAlignment="Center" Width="263" Margin="335,0,0,0"/>
+        <TextBlock HorizontalAlignment="Right" FontFamily="Bahnschrift" FontSize="30" Margin="0,0,18,471" TextWrapping="Wrap" Text="Топ лист:" VerticalAlignment="Bottom" Height="41" Width="281"/>
 
     </Grid>
 </Page>

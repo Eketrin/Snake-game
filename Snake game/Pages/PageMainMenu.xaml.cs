@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Snake_game;
 
 namespace Snake_game.Pages
 {
@@ -20,14 +22,18 @@ namespace Snake_game.Pages
     /// </summary>
     public partial class PageMainMenu : Page
     {
+        
+
         public PageMainMenu()
         {
             InitializeComponent();
         }
-
+        
         private void ButtonNewGame(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainWindow());
+           //Holder.IsRestart = true;
+           NavigationService.Navigate(null);
+           //NavigationService.Navigate(null);
         }
 
         private void ButtonName(object sender, RoutedEventArgs e)
