@@ -44,7 +44,8 @@ namespace Snake_game.Pages
             System.Windows.Application.Current.Shutdown();
         }
 
-        private void DataGridUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DataGridUser_SelectionChanged(object sender, 
+            SelectionChangedEventArgs e)
         {
 
         }

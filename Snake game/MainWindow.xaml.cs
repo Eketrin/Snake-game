@@ -257,10 +257,9 @@ namespace Snake_game
             }
             */
 
-            
             MainFrame.Content = new Pages.PageMainMenu();
             RestartG();
-            //NavigationService.Navigate(new Pages.PageMainMenu());
+            
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)
