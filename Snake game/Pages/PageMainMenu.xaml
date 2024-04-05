@@ -9,14 +9,16 @@
       Title="PageMainMenu">
 
     <Grid Background="#FFF2FBB5" VerticalAlignment="Center" Height="670">
-        
-        <Label Content="Ваш счёт:" Margin="0,0,439,474" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="143" Height="41" VerticalAlignment="Bottom"/>
-        <Button Content="Новая игра" Click="ButtonNewGame" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,439,371" />
+
+        <Label Content="Ваш счёт:" Margin="0,0,453,478" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="143" Height="42" VerticalAlignment="Bottom"/>
+        <Button Content="Новая игра" Click="ButtonNewGame" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,453,412" />
 
 
-        <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Right" Margin="0,0,244,479" TextWrapping="Wrap"  VerticalAlignment="Bottom" FontFamily="Bahnschrift" FontSize="30" Width="190" Height="31"/>
-        <ListBox HorizontalAlignment="Left" Height="270" VerticalAlignment="Center" Width="263" Margin="335,0,0,0"/>
-        <TextBlock HorizontalAlignment="Right" FontFamily="Bahnschrift" FontSize="30" Margin="0,0,18,471" TextWrapping="Wrap" Text="Топ лист:" VerticalAlignment="Bottom" Height="41" Width="281"/>
+        <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Right" Margin="0,0,258,484" TextWrapping="Wrap"  VerticalAlignment="Bottom" FontFamily="Bahnschrift" FontSize="30" Width="190" Height="30"/>
+        <ListBox HorizontalAlignment="Left" Height="270" VerticalAlignment="Top" Width="566" Margin="36,350,0,0"/>
+        <TextBlock HorizontalAlignment="Right" FontFamily="Bahnschrift" FontSize="30" Margin="0,0,296,321" TextWrapping="Wrap" Text="Топ лист:" VerticalAlignment="Bottom" Height="41" Width="302"/>
+        <TextBlock Text="Game Over" FontFamily="Bahnschrift SemiBold" FontSize="50" HorizontalAlignment="Center" Margin="0,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="262"/>
+        <Button Content="Выйти из игры" x:Name="Exit" HorizontalAlignment="Right" Width="164"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,258,412" Click="Exit_Click"  />
 
     </Grid>
 </Page>

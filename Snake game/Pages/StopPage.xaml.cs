@@ -36,7 +36,8 @@ namespace Snake_game.Pages
         }
         private void ButtonNo(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.PageMainMenu());
+            System.Windows.Application.Current.Shutdown();
+            //NavigationService.Navigate(new Pages.PageMainMenu());
         }
 
 

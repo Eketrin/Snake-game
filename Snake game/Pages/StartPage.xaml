@@ -1,0 +1,20 @@
+﻿<Page x:Class="Snake_game.Pages.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Snake_game.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="670" d:DesignWidth="634"
+      Title="StartPage">
+
+    <Grid Background="#FFF2FBB5" VerticalAlignment="Center" Height="670">
+        <Button x:Name="ButtonNewGame"  Content="Новая игра" Visibility="Hidden" Click="ButtonNewGame_Click" HorizontalAlignment="Right" Width="183"  FontFamily="Bahnschrift Light" FontSize="30" Height="65" VerticalAlignment="Bottom" Margin="0,0,341,145" />
+        <TextBlock HorizontalAlignment="Right" FontFamily="Bahnschrift" FontSize="30" Margin="0,0,138,380" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="41" Width="322"><Run Text="Введите ваш"/><Run Language="ru-ru" Text="е"/><Run Text=" "/><Run Language="ru-ru" Text="имя"/></TextBlock>
+        <TextBlock Text="Snake game" FontFamily="Bahnschrift SemiBold" FontSize="50" HorizontalAlignment="Left" Margin="177,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="283"/>
+        <Button Content="Выйти из игры" x:Name="Exit" Visibility="Hidden" HorizontalAlignment="Right" Width="217"  FontFamily="Bahnschrift Light" FontSize="30" Height="65" VerticalAlignment="Bottom" Margin="0,0,82,145" Click="Exit_Click"  />
+        <TextBox x:Name="InputN" FontFamily="Bahnschrift" FontSize="25" HorizontalAlignment="Left" Margin="177,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="249" Height="34"/>
+        <Button Content="Сохранить" x:Name="SaveName" HorizontalAlignment="Left" Width="115"  FontFamily="Bahnschrift Light" FontSize="20" Height="34" VerticalAlignment="Center" Margin="439,0,0,0" Click="SaveName_Click" />
+
+    </Grid>
+</Page>

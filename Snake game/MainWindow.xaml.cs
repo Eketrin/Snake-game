@@ -19,7 +19,7 @@ namespace Snake_game
 {
     public partial class MainWindow : Window
     {
-        
+        public const string NameOfPlayer = "---";
         //канвас 640 на 420
 
         //все списки
@@ -35,7 +35,7 @@ namespace Snake_game
         private Point startPosition = new Point(rnd.Next(20, 608), rnd.Next(5, 645));
         private Point nowPosition = new Point();
         
-        private int score = 0; //счёт
+        public static int score = 0; //счёт
         int sizeL = (int)SnakeSize.Large;
         
 
@@ -60,9 +60,6 @@ namespace Snake_game
             Left = 4,
             Right = 6
         };
-
-        
-
 
         private void paintSnake(Point currentposition)
         {
@@ -109,21 +106,7 @@ namespace Snake_game
             {
                 PaintNewApple(n);
             }
-            /*
-            if (Holder.IsRestart)
-            {
-                Score.Text = "ddddddddddddd";
-                Holder.IsRestart = false;
-                snakePoints.Clear();
-                applePoints.Clear();
-                page = 0;
-                direction = 0; //сейчас
-
-                previousDirection = 0; //прошлое
-                score = 0;
-                paintSnake(startPosition);
-                nowPosition = startPosition;
-            }*/
+            
         }
         private void perSec(object sender, EventArgs e)
         {
@@ -243,7 +226,10 @@ namespace Snake_game
         private void GameOver()
         {
             MessageBox.Show($"Вы проиграли :( Счёт: {score}", "Game Over", MessageBoxButton.OK, MessageBoxImage.Hand);
-            this.Close();
+            //this.Close();
+            MainFrame.Content = new Pages.PageMainMenu();
+            RestartG();
+            //NavigationService.Navigate(new Pages.PageMainMenu());
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)
@@ -254,6 +240,26 @@ namespace Snake_game
             
         }
 
-       
+       public void RestartG()
+        {
+            snakePoints.Clear();
+            paintCanvas.Children.Clear();
+            direction = 0;
+            length = 50;
+            score = 0;
+            applePoints.Clear();
+            paintSnake(startPosition);
+            nowPosition = startPosition;
+
+            for (var n = 0; n < 10; n++)
+            {
+                PaintNewApple(n);
+            }
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

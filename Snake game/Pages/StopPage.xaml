@@ -10,7 +10,7 @@
 
     <Grid>
         <TextBlock Text="Продолжить?" Margin="0,147,212,0" FontFamily="Bahnschrift Light" FontSize="30" HorizontalAlignment="Right" Width="221" Height="42" VerticalAlignment="Top" Background="#FFF2FBB5" TextAlignment="Center"/>
-        <Button Margin="0,224,359,0" Content="Да" Click="ButtonYes" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Top"/>
-        <Button Margin="0,224,128,0" Content="Нет" Click="ButtonNo" HorizontalAlignment="Right" Width="138" FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Top"/>
+        <Button Margin="0,224,364,0" Content="Да" Click="ButtonYes" HorizontalAlignment="Right" Width="138"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Top"/>
+        <Button Margin="0,224,134,0" Content="Нет, закрыть игру" Click="ButtonNo" HorizontalAlignment="Right" Width="188" FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Top"/>
     </Grid>
 </Page>

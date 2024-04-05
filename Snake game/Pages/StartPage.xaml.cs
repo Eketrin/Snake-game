@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,32 +12,38 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Snake_game;
 
 namespace Snake_game.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageMainMenu.xaml
+    /// Логика взаимодействия для StartPage.xaml
     /// </summary>
-    public partial class PageMainMenu : Page
+    public partial class StartPage : Page
     {
-        
-
-        public PageMainMenu()
+        //bool IsSave = false;
+        public StartPage()
         {
             InitializeComponent();
         }
-        
-        private void ButtonNewGame(object sender, RoutedEventArgs e)
-        {
-           //Holder.IsRestart = true;
-           NavigationService.Navigate(null);
-           //NavigationService.Navigate(null);
-        }
+
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void SaveName_Click(object sender, RoutedEventArgs e)
+        {
+            SaveName.Content = "✔";
+            SaveName.IsEnabled = false;
+            ButtonNewGame.Visibility = Visibility.Visible;
+            Exit.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(null);
         }
     }
 }
