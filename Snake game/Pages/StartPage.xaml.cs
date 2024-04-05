@@ -82,5 +82,10 @@ namespace Snake_game.Pages
         {
             NavigationService.Navigate(null);
         }
+
+        private void InputN_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -19,13 +19,14 @@ namespace Snake_game
 {
     public partial class MainWindow : Window
     {
-        public const string NameOfPlayer = "---";
-        //канвас 640 на 420
+        
+        
+        //private Table_All_Players _players = new Table_All_Players();
 
         //все списки
         public List<Point> snakePoints = new List<Point>();
         private List<Point> applePoints = new List<Point>();
-        public int page = 0;
+        //public int page = 0;
 
         //инты
         private static Random rnd = new Random();
@@ -222,11 +223,41 @@ namespace Snake_game
             applePoints.Insert(index, apple);
 
         }
-        
+
+
         private void GameOver()
         {
-            MessageBox.Show($"Вы проиграли :( Счёт: {score}", "Game Over", MessageBoxButton.OK, MessageBoxImage.Hand);
-            //this.Close();
+            /*
+            StringBuilder errors = new StringBuilder();
+            //поиск незаполненных полей
+
+            
+            if (string.IsNullOrWhiteSpace(_players.PlayerName))
+                errors.AppendLine("Введите имя!");
+            _players.PlayerScore = 0;
+            //проверка на наличие ошибок и их вывод
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+            //добавляем новую запись
+            if (_players.ID == 0)
+            {
+                Entities.GetContext().Table_All_Players.Add(_players);
+            }
+            try
+            {
+                Entities.GetContext().SaveChanges();
+                //MessageBox.Show("Данные сохранены!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            */
+
+            
             MainFrame.Content = new Pages.PageMainMenu();
             RestartG();
             //NavigationService.Navigate(new Pages.PageMainMenu());

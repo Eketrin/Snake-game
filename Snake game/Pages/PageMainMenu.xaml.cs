@@ -27,6 +27,7 @@ namespace Snake_game.Pages
         public PageMainMenu()
         {
             InitializeComponent();
+            ScoreOnPage.Text = Convert.ToString(MainWindow.score);
             DataGridUser.ItemsSource =
             Entities.GetContext().Table_All_Players.ToList();
         }
