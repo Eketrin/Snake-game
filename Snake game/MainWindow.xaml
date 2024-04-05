@@ -12,6 +12,6 @@
         <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Left" Margin="79,4,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" Width="190"/>
         <Label  Content="Счёт:" HorizontalAlignment="Left" Margin="1,-1,0,0" VerticalAlignment="Top" Width="86" FontFamily="Bahnschrift" FontSize="30" Height="41" />
         <Button x:Name="Stop" Content="Пауза" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="40" Width="98" FontFamily="Bahnschrift" FontSize="30" Margin="536,0,0,0" Background="#FFBD2A2A" Foreground="White" Click="Stop_Click"/>
-        <Frame Name="MainFrame"  HorizontalAlignment="Left" Width="634" NavigationUIVisibility="Hidden" BorderBrush="#FFAC2727" Navigated="MainFrame_Navigated" />
+        <Frame Name="MainFrame" Source="Pages/StartPage.xaml" HorizontalAlignment="Left" Width="634" NavigationUIVisibility="Hidden" BorderBrush="#FFAC2727" Navigated="MainFrame_Navigated" />
     </Grid>
 </Window>

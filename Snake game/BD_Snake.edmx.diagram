@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1aed2ffedbd64f1c8a3d8449ee509f77" Name="Diagram1">
-        <EntityTypeShape EntityType="Bd_ForSnakeModel.Table_All_Players" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_ForSnakeModel.Table_All_Players" Width="1.5" PointX="0.875" PointY="1.625" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

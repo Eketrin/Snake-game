@@ -4,35 +4,29 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Bd_ForSnakeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "Bd_ForSnake.dbo.Table_All_Players" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+    <Schema Namespace="Хранилище Bd_ForSnakeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Table_All_Players">
           <Key>
-            <PropertyRef Name="PlayerName" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="PlayerName" Type="varchar(max)" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlayerName" Type="varchar(max)" />
           <Property Name="PlayerScore" Type="int" />
         </EntityType>
         <EntityContainer Name="Хранилище Bd_ForSnakeModelContainer">
-          <EntitySet Name="Table_All_Players" EntityType="Self.Table_All_Players" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Table_All_Players].[PlayerName] AS [PlayerName], 
-    [Table_All_Players].[PlayerScore] AS [PlayerScore]
-    FROM [dbo].[Table_All_Players] AS [Table_All_Players]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Table_All_Players" EntityType="Self.Table_All_Players" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Bd_ForSnakeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Table_All_Players">
           <Key>
-            <PropertyRef Name="PlayerName" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="PlayerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlayerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PlayerScore" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Table_All_Players" EntityType="Self.Table_All_Players" />
@@ -46,6 +40,7 @@
           <EntitySetMapping Name="Table_All_Players">
             <EntityTypeMapping TypeName="Bd_ForSnakeModel.Table_All_Players">
               <MappingFragment StoreEntitySet="Table_All_Players">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
                 <ScalarProperty Name="PlayerScore" ColumnName="PlayerScore" />
               </MappingFragment>

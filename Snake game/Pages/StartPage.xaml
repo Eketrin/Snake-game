@@ -13,8 +13,8 @@
         <TextBlock HorizontalAlignment="Right" FontFamily="Bahnschrift" FontSize="30" Margin="0,0,138,380" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="41" Width="322"><Run Text="Введите ваш"/><Run Language="ru-ru" Text="е"/><Run Text=" "/><Run Language="ru-ru" Text="имя"/></TextBlock>
         <TextBlock Text="Snake game" FontFamily="Bahnschrift SemiBold" FontSize="50" HorizontalAlignment="Left" Margin="177,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="283"/>
         <Button Content="Выйти из игры" x:Name="Exit" Visibility="Hidden" HorizontalAlignment="Right" Width="217"  FontFamily="Bahnschrift Light" FontSize="30" Height="65" VerticalAlignment="Bottom" Margin="0,0,82,145" Click="Exit_Click"  />
-        <TextBox x:Name="InputN" FontFamily="Bahnschrift" FontSize="25" HorizontalAlignment="Left" Margin="177,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="249" Height="34"/>
+        <TextBox x:Name="InputN" Text="{Binding PlayerName}" FontFamily="Bahnschrift" FontSize="25" HorizontalAlignment="Left" Margin="177,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="249" Height="34"/>
         <Button Content="Сохранить" x:Name="SaveName" HorizontalAlignment="Left" Width="115"  FontFamily="Bahnschrift Light" FontSize="20" Height="34" VerticalAlignment="Center" Margin="439,0,0,0" Click="SaveName_Click" />
-
+        
     </Grid>
 </Page>

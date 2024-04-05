@@ -177,22 +177,22 @@ namespace Snake_game
             switch (e.Key)
             {
                 case Key.Down:
-                case Key.S:
+                //case Key.S:
                     if (previousDirection != (int)DirectionToGo.Up)
                         direction = (int)DirectionToGo.Down;
                     break;
                 case Key.Up:
-                case Key.W:
+                //case Key.W:
                     if (previousDirection != (int)DirectionToGo.Down)
                         direction = (int)DirectionToGo.Up;
                     break;
                 case Key.Left:
-                case Key.A:
+                //case Key.A:
                     if (previousDirection != (int)DirectionToGo.Right)
                         direction = (int)DirectionToGo.Left;
                     break;
                 case Key.Right:
-                case Key.D:
+                //case Key.D:
                     if (previousDirection != (int)DirectionToGo.Left)
                         direction = (int)DirectionToGo.Right;
                     break;

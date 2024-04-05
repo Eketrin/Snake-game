@@ -15,6 +15,7 @@ namespace Snake_game
     
     public partial class Entities : DbContext
     {
+
         private static Entities _context;
         public Entities()
             : base("name=Entities")
@@ -30,7 +31,7 @@ namespace Snake_game
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Table_All_Players> Table_All_Players { get; set; }
     }
 }

@@ -16,5 +16,6 @@ namespace Snake_game
     {
         public string PlayerName { get; set; }
         public Nullable<int> PlayerScore { get; set; }
+        public int ID { get; set; }
     }
 }
