@@ -27,8 +27,10 @@ namespace Snake_game.Pages
         public PageMainMenu()
         {
             InitializeComponent();
+            DataGridUser.ItemsSource =
+            Entities.GetContext().Table_All_Players.ToList();
         }
-        
+
         private void ButtonNewGame(object sender, RoutedEventArgs e)
         {
            //Holder.IsRestart = true;
@@ -39,6 +41,11 @@ namespace Snake_game.Pages
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void DataGridUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

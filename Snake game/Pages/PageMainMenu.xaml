@@ -15,10 +15,20 @@
 
 
         <TextBlock x:Name="Score" Text="0" HorizontalAlignment="Right" Margin="0,0,258,484" TextWrapping="Wrap"  VerticalAlignment="Bottom" FontFamily="Bahnschrift" FontSize="30" Width="190" Height="30"/>
-        <ListBox HorizontalAlignment="Left" Height="270" VerticalAlignment="Top" Width="566" Margin="36,350,0,0"/>
         <TextBlock HorizontalAlignment="Right" FontFamily="Bahnschrift" FontSize="30" Margin="0,0,296,321" TextWrapping="Wrap" Text="Топ лист:" VerticalAlignment="Bottom" Height="41" Width="302"/>
         <TextBlock Text="Game Over" FontFamily="Bahnschrift SemiBold" FontSize="50" HorizontalAlignment="Center" Margin="0,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="262"/>
         <Button Content="Выйти из игры" x:Name="Exit" HorizontalAlignment="Right" Width="164"  FontFamily="Bahnschrift Light" FontSize="20" Height="44" VerticalAlignment="Bottom" Margin="0,0,258,412" Click="Exit_Click"  />
-
+        <DataGrid Name="DataGridUser" 
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          HorizontalAlignment="Center" 
+          Height="299" Margin="0,349,0,0" 
+          VerticalAlignment="Top" Width="561" FontFamily="Bahnschrift" SelectionChanged="DataGridUser_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№"  Width="30"/>
+                <DataGridTextColumn Header="Игрок" Binding="{Binding PlayerName}" Width="50*"/>
+                <DataGridTextColumn Header="Счёт" Binding="{Binding PlayerScore}" Width="100*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
